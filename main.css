@@ -23,6 +23,7 @@ body {
     line-height: 1.6;
 }
 
+/*
 .container {
     min-height: 100vh;
     display: flex;
@@ -208,19 +209,24 @@ button:hover {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 768px) {
     .main-content {
         grid-template-columns: 1fr;
     }
-    
+
     .chat-container {
         padding: 16px;
     }
-    
+
     .header h1 {
         font-size: 2rem;
     }
@@ -243,4 +249,4 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
     background: #f9f9f9;
-}
+} */
