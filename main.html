@@ -1,0 +1,62 @@
+<!-- uncomment this line!! -->
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice Chat Assistant</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+    <link rel="stylesheet" href="/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="chat-container">
+        <div class="header">
+          <h1>Voice Chat Assistant</h1>
+          <div class="timer" id="timer"></div>
+        </div>
+
+        <div class="main-content">
+          <div class="video-container">
+            <video id="videoPreview" autoplay muted></video>
+            <div id="permissionsGuide"></div>
+            <div class="status-indicator" id="status">Press Start to begin the session</div>
+          </div>
+
+          <div class="response-container">
+            <div class="response-text" id="response"></div>
+            <div id="recordingIndicator"></div>
+            <div class="loading-spinner" id="loadingSpinner">
+              <div class="spinner"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="startButton" class="btn primary">
+            <span class="icon">▶</span> Start Session
+          </button>
+
+          <button id="recordButton" class="btn record" style="display: none">
+            <span class="icon">⬤</span> Record Message
+          </button>
+
+          <button id="stopRecordingButton" class="btn stop-record" style="display: none">
+            <span class="icon">■</span> Stop Recording
+          </button>
+
+          <button id="stopButton" class="btn danger" style="display: none">
+            <span class="icon">⬛</span> End Session
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="audioPlayback" style="display: none"></audio>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
