@@ -85,12 +85,15 @@ class VoiceChatApp {
       // Update UI
       this.isSessionActive = true;
       this.elements.startButton.style.display = 'none';
+
       // this.elements.stopRecordingButton.style.display = 'inline-block';
       // this.elements.stopButton.style.display = 'inline-block';
       this.elements.stopRecordingButton.style.display = 'flex';
       this.elements.stopRecordingButton.style.flexDirection = 'column';
       this.elements.stopButton.style.display = 'flex';
       this.elements.stopButton.style.flexDirection = 'column';
+      const responseBox = document.getElementById('response-box');
+      responseBox.style.display = 'flex';
       this.updateStatus('Session started - Recording automatically');
 
       // Start session timer (5 minutes)
