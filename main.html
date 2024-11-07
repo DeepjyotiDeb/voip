@@ -66,8 +66,9 @@
             <div class="status-indicator mb-16" id="status">Press Start to begin the session</div>
           </div>
 
-          <div class="response-container p-5 relative w-1/3 flex flex-col justify-center gap-2">
-            <div id="response-box" class="hidden">
+          <div class="response-container p-5 relative w-1/3 flex flex-col justify-center">
+            <div id="response-box" class="space-y-2">
+              <div class="text-lg font-bold">. . .</div>
               <div class="flex gap-2" id="ai-response">
                 <div class="mt-2">
                   <p
@@ -86,7 +87,7 @@
               </div>
               <div class="flex justify-end" id="candidate-response">
                 <div class="order-last">
-                  <img src="/user.svg" alt="user" class="size-8 mt-2" />
+                  <img src="{%static '/user.svg' %}" alt="user" class="size-8 mt-2" />
                 </div>
                 <div
                   class="response-text bg-[#f9f9f9] min-h-12 rounded-md p-4 max-w-[28rem]"
