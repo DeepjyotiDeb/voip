@@ -27,6 +27,8 @@ class VoiceChatApp {
       response: document.getElementById('response'),
       audioPlayback: document.getElementById('audioPlayback'),
       videoPreview: document.getElementById('videoPreview'),
+      aiText: document.getElementById('ai-text'),
+      candidateText: document.getElementById('candidate-text'),
     };
 
     // Bind methods to maintain context
@@ -92,8 +94,9 @@ class VoiceChatApp {
       this.elements.stopRecordingButton.style.flexDirection = 'column';
       this.elements.stopButton.style.display = 'flex';
       this.elements.stopButton.style.flexDirection = 'column';
+      // Response box
       const responseBox = document.getElementById('response-box');
-      responseBox.style.display = 'flex';
+      responseBox.style.display = 'block';
       this.updateStatus('Session started - Recording automatically');
 
       // Start session timer (5 minutes)
@@ -321,9 +324,10 @@ class VoiceChatApp {
       const data = JSON.parse(event.data);
 
       // Update response text if available
-      if (data.text) {
-        this.elements.response.textContent = data.text;
-      }
+      if (data.Candidate) this.elements.candidateText.textContent = data.Candidate;
+
+      // this.elements.response.textContent = data.text;
+      if (data.AI) this.elements.aiText.textContent = data.AI;
 
       // Play audio response if available
       if (data.audio) {
