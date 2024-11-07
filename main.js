@@ -85,8 +85,12 @@ class VoiceChatApp {
       // Update UI
       this.isSessionActive = true;
       this.elements.startButton.style.display = 'none';
-      this.elements.stopRecordingButton.style.display = 'inline-block';
-      this.elements.stopButton.style.display = 'inline-block';
+      // this.elements.stopRecordingButton.style.display = 'inline-block';
+      // this.elements.stopButton.style.display = 'inline-block';
+      this.elements.stopRecordingButton.style.display = 'flex';
+      this.elements.stopRecordingButton.style.flexDirection = 'column';
+      this.elements.stopButton.style.display = 'flex';
+      this.elements.stopButton.style.flexDirection = 'column';
       this.updateStatus('Session started - Recording automatically');
 
       // Start session timer (5 minutes)
@@ -270,7 +274,12 @@ class VoiceChatApp {
     // Update UI
     this.updateStatus('Recording...');
     this.elements.loadingSpinner.style.display = 'none';
-    this.elements.stopRecordingButton.style.display = 'inline-block';
+    // this.elements.stopRecordingButton.style.display = 'inline-block';
+    this.elements.stopRecordingButton.style.display = 'flex';
+    this.elements.stopRecordingButton.style.flexDirection = 'column';
+
+    // this creates a blinking effect on the logo
+    document.getElementById('center-logo').classList.add('recording');
   }
 
   stopRecording() {
@@ -279,12 +288,18 @@ class VoiceChatApp {
     return new Promise((resolve) => {
       this.isRecording = false;
       this.elements.stopRecordingButton.style.display = 'none';
-      this.elements.loadingSpinner.style.display = 'block';
+      this.elements.loadingSpinner.style.display = 'flex';
+      this.elements.loadingSpinner.style.flexDirection = 'column';
+      document.getElementById('center-logo').classList.remove('recording');
 
       this.recorder.stopRecording(() => {
         const audioBlob = this.recorder.getBlob();
         this.sendAudioToServer(audioBlob);
         this.updateStatus('Processing...');
+
+        // stops the blinking effect on the logo
+        document.getElementById('center-logo').classList.remove('recording');
+
         resolve();
       });
     });
@@ -413,7 +428,8 @@ class VoiceChatApp {
       this.elements.loadingSpinner.style.display = 'none';
       this.elements.stopButton.style.display = 'none';
       this.elements.stopRecordingButton.style.display = 'none';
-      this.elements.startButton.style.display = 'inline-block';
+      this.elements.startButton.style.display = 'flex';
+      this.elements.startButton.style.flexDirection = 'column';
       this.elements.timer.textContent = '';
       this.elements.response.textContent = '';
     } catch (error) {

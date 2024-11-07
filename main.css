@@ -16,11 +16,36 @@
     box-sizing: border-box;
 }
 
+.montserrat-font {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background-color: var(--background-color);
     color: var(--text-primary);
     line-height: 1.6;
+}
+
+@keyframes alternateOpacity {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+#center-logo.recording {
+    animation: alternateOpacity 1s infinite;
 }
 
 /*
