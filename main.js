@@ -59,28 +59,28 @@ class VoiceChatApp {
     try {
       // Initialize WebSocket connection
       //TODO
-      //   this.socket = new WebSocket(`ws://${window.location.host}/ws/voice/`);
-      //   this.socket.onmessage = this.handleMessage;
-      //   this.socket.onerror = (error) => {
-      //     console.error('WebSocket error:', error);
-      //     this.updateStatus('Connection error occurred');
-      //   };
-      //   this.socket.onclose = () => {
-      //     if (this.isSessionActive) {
-      //       this.updateStatus('Connection closed unexpectedly');
-      //       this.endSession();
-      //     }
-      //   };
+      this.socket = new WebSocket(`ws://${window.location.host}/ws/voice/`);
+      this.socket.onmessage = this.handleMessage;
+      this.socket.onerror = (error) => {
+        console.error('WebSocket error:', error);
+        this.updateStatus('Connection error occurred');
+      };
+      this.socket.onclose = () => {
+        if (this.isSessionActive) {
+          this.updateStatus('Connection closed unexpectedly');
+          this.endSession();
+        }
+      };
 
-      //   // Wait for WebSocket to connect
-      //   await new Promise((resolve, reject) => {
-      //     this.socket.onopen = resolve;
-      //     setTimeout(() => reject(new Error('WebSocket connection timeout')), 5000);
-      //   });
+      // Wait for WebSocket to connect
+      await new Promise((resolve, reject) => {
+        this.socket.onopen = resolve;
+        setTimeout(() => reject(new Error('WebSocket connection timeout')), 5000);
+      });
 
       // Initialize all media streams
       await this.initializeMediaStream();
-      // await this.startScreenRecording();
+      await this.startScreenRecording();
 
       // Update UI
       this.isSessionActive = true;
@@ -219,9 +219,9 @@ class VoiceChatApp {
         // console.log('Blob type:', blob.type);
         // console.log('Blob size:', blob.size);
         //TODO
-        // this.uploadScreenRecordingToS3(blob, 'screen');
+        this.uploadScreenRecordingToS3(blob, 'screen');
 
-        // this.saveRecording(blob, 'screen');
+        this.saveRecording(blob, 'screen');
 
         // Stop all tracks from combined stream
         if (this.combinedStream) {

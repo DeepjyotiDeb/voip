@@ -25,7 +25,8 @@
         <div class="header flex justify-between p-4 z-20">
           <!-- <h1>Voice Chat Assistant</h1> -->
           <!-- <p class="text-4xl">Shivon Ai</p> -->
-          <img src="/Group 520.svg" class="pl-10" alt="" />
+          <!-- <img src="/Group 520.svg" class="pl-10" alt="" /> -->
+          <img src="{% static '/Group 520.svg' %}" class="pl-10" alt="" />
           <div class="timer" id="timer"></div>
         </div>
 
@@ -34,8 +35,15 @@
             class="absolute rounded-full size-[900px] filter blur-3xl -top-1/2 -left-40 bg-purple-50"
           ></div>
           <div class="video-container w-2/3 flex flex-col relative">
-            <img
+            <!-- <img
               src="/Group 653.svg"
+              class="w-52 absolute top-1/2 left-1/2 translate-x-1/2 -translate-y-20"
+              name="center-logo"
+              id="center-logo"
+              alt="shivon-ai"
+            /> -->
+            <img
+              src="{% static '/Group 653.svg' %}"
               class="w-52 absolute top-1/2 left-1/2 translate-x-1/2 -translate-y-20"
               name="center-logo"
               id="center-logo"
@@ -67,8 +75,13 @@
             <div class="controls mb-32 mt-4 flex justify-center gap-4">
               <button id="startButton" class="flex flex-col items-center primary">
                 <span class="icon">
-                  <img
+                  <!-- <img
                     src="/play.svg"
+                    alt="start"
+                    class="size-8 hover:outline hover:outline-purple-500 rounded-full"
+                  /> -->
+                  <img
+                    src="{% static '/play.svg' %}"
                     alt="start"
                     class="size-8 hover:outline hover:outline-purple-500 rounded-full"
                   />
@@ -82,8 +95,13 @@
                 style="display: none"
               >
                 <span class="icon">
-                  <img
+                  <!-- <img
                     src="/record.svg"
+                    alt="record"
+                    class="size-8 hover:outline hover:outline-purple-500 rounded-full"
+                  /> -->
+                  <img
+                    src="{% static '/record.svg' %}"
                     alt="record"
                     class="size-8 hover:outline hover:outline-purple-500 rounded-full"
                   />
@@ -97,11 +115,17 @@
                 style="display: none"
               >
                 <span class="icon">
-                  <img
+                  <!-- <img
                     src="/pause.svg"
                     alt="pause"
                     class="size-8 hover:outline hover:outline-purple-500 rounded-lg"
-                /></span>
+                /> -->
+                  <img
+                    src="{% static '/pause.svg'}%"
+                    alt="pause"
+                    class="size-8 hover:outline hover:outline-purple-500 rounded-lg"
+                  />
+                </span>
                 <p class="text-gray-500">Stop Recording</p>
               </button>
 
@@ -111,8 +135,13 @@
                 style="display: none"
               >
                 <span class="icon">
-                  <img
+                  <!-- <img
                     src="/stop.svg"
+                    alt="stop"
+                    class="size-8 hover:outline hover:outline-purple-500 rounded-lg"
+                  /> -->
+                  <img
+                    src="{% static '/stop.svg' %}"
                     alt="stop"
                     class="size-8 hover:outline hover:outline-purple-500 rounded-lg"
                   />
@@ -131,7 +160,7 @@
 
     <audio id="audioPlayback" style="display: none"></audio>
 
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static '/main.js' %}"></script>
     <!-- <script src="/main.js"></script> -->
   </body>
 </html>
